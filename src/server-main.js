@@ -1,4 +1,4 @@
-// native node modules
+// Native node modules
 import isDocker from 'is-docker';
 import fs from 'node:fs';
 import path from 'node:path';
