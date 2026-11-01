@@ -353,7 +353,8 @@ async function preSetupTasks() {
     // Wait for frontend libs to compile
     if (process.env.NODE_ENV !== 'production') {
     await webpackMiddleware.runWebpackCompiler({ pruneCache: true });
-}
+    }
+    }
 
 /**
  * Tasks that need to be run after the server starts listening.
