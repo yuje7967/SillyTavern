@@ -355,6 +355,7 @@ async function preSetupTasks() {
     if (!isDocker()) {
     await webpackMiddleware.runWebpackCompiler({ pruneCache: true });
 }
+}
 
 /**
  * Tasks that need to be run after the server starts listening.
