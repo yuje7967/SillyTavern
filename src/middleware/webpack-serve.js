@@ -11,7 +11,7 @@ export default function getWebpackServeMiddleware() {
      * @type {import('express').RequestHandler}
      */
     function devMiddleware(req, res, next) {
-        const publicLibConfig = getPublicLibConfig();
+        const publicLibConfig = getPublicLibConfig({ forceDist: process.env.NODE_ENV === 'production' });
         const outputPath = publicLibConfig.output?.path;
         const outputFile = publicLibConfig.output?.filename;
         const parsedPath = path.parse(req.path);
