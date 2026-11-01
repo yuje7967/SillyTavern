@@ -1,4 +1,5 @@
 // native node modules
+import isDocker from 'is-docker';
 import fs from 'node:fs';
 import path from 'node:path';
 import util from 'node:util';
@@ -351,6 +352,7 @@ async function preSetupTasks() {
     initRequestProxy({ enabled: cliArgs.requestProxyEnabled, url: cliArgs.requestProxyUrl, bypass: cliArgs.requestProxyBypass, enableKeepAlive: cliArgs.enableKeepAlive, privateRequestFilterEnabled: requestFilterOptions.enabled });
 
     // Wait for frontend libs to compile
+    if (!isDocker()) {
     await webpackMiddleware.runWebpackCompiler({ pruneCache: true });
 }
 
